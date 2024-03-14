@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="card" *ngFor="let character of characters" (click)="openCharacter(character)">
+    <div class="personaje">
+      <div>
+        <img width="200" height="325" ngSrc="{{character?.image}}" alt="{{character.name}}">
+      </div>
+      <div >
+        <h2>{{character.name}}</h2>
+        <p>Gender: <br> {{character.gender}}</p>
+        <p>Ki: <br> {{character.ki}}</p>
+      </div>
+    </div>
+  </div>
+
+  <dx-popup
+    [width]="660"
+    [height]="700"
+    [showTitle]="true"
+    [title]="characterSelect?.name!"
+    [dragEnabled]="false"
+    [hideOnOutsideClick]="true"
+    [(visible)]="visibleModal"
+    [showCloseButton]="true"
+  >
+    <div *dxTemplate="let data of 'content'">
+      <div class="popup-property-details">
+        <div class="detail">
+          <div class="images">
+            <img
+              width="200" height="325"
+              alt="{{ characterSelect?.name }}"
+              src="{{ characterSelect?.image }}"
+            />
+          </div>
+        </div>
+        <div>Race: {{characterSelect?.race}}</div>
+        <div>Origin Planet: {{characterSelect?.originPlanet}}</div>
+        <div>Max Ki: {{characterSelect?.maxKi}}</div>
+        <div>Affiliation: {{characterSelect?.affiliation}}</div>
+        <div class="large-text">
+          <br>{{characterSelect?.description}}
+        </div>
+      </div>
+
+    </div>
+  </dx-popup>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="container-image">
+    <img src="assets/images/menu.png" alt="" width="10%">
+  </div>
+  <div class="container-menu">
+    <div>
+      <dx-menu
+        #menu
+        [dataSource]="items"
+        displayExpr="name"
+        orientation="horizontal"
+        [hideSubmenuOnMouseLeave]="false"
+      >
+      </dx-menu>
+    </div>
+    <div>
+      <dx-button
+        icon="user"
+        type="success"
+        text="Registrate"
+      >
+      </dx-button>
+    </div>
+  </div>
+</div>
